@@ -1,0 +1,15 @@
+services:
+  maria:
+    image: mariadb:10
+    container_name: ave_maria
+    volumes:
+      - ./docker-init/rdb:/docker-entrypoint-initdb.d
+    environment:
+      LANG: C.UTF-8
+      MARIADB_DATABASE: 'pet_i'
+      MARIADB_HOST: 'localhost'
+      MARIADB_USER: 'root'
+      MARIADB_ROOT_PASSWORD: 'root'
+      TZ: Asia/Seoul
+    ports:
+      - '3306:3306'
